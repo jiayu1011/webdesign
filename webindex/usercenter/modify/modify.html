@@ -1,0 +1,25 @@
+<!--pages/me/me.wxml-->
+<!--pages/myinfo/myinfo.wxml-->
+<!-- <text>pages/myinfo/myinfo.wxml</text> -->
+<view class='content'>
+    <link rel="stylesheet" href="./modify.css" />
+    <script type="text/javascript" src="./modify.js"></script>
+      <view class='item'>
+        <text class='left'>学号：{{userdataname}}</text>
+       
+      </view>
+      <view class='item'>
+        <text class='left'>学院：</text>
+        <input class="weui-input" name="userage" bindinput="userdata2" type="number" maxlength="3" placeholder-style="color:#F76260" />
+      </view>
+      <view class='item'>
+       <text class='left'> 邮箱：</text>
+       <input class="weui-input" name="useremail" bindinput="userdata3" type="text" maxlength="20" placeholder-style="color:#F76260" />
+      </view>
+      <view class='item'>
+       <text class='left'> 密码：</text>
+       <input class="weui-input" name="userpassword" bindinput="userdata4" type="text" maxlength="20" placeholder-style="color:#F76260" />
+      </view>
+      <button type="button" class="btn btn-primary" onclick="save()">保存</button>
+    
+  </view>

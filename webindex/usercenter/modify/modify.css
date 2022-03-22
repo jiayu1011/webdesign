@@ -1,0 +1,75 @@
+/* pages/me/me.wxss */
+/* pages/myinfo/myinfo.wxss */
+.nav{
+    background-color: #fff;
+  }
+  .top{
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  }
+  .nickname{
+  margin-bottom: 10rpx;
+  text-align: center;
+  }
+  .item{
+  height: 70rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  display: flex;
+  border-radius: 20rpx;
+  }
+  .left{
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 1;
+  }
+  .right{
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  color: #ccc;
+  margin-right: 20rpx;
+  }
+  .weui-input {
+    position: sticky;
+    padding: 8px 10px;
+    display: flex;
+    background-color: #EFEFF4;
+    border: 2rpx solid #3d2e86;
+    border-radius:25px;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+    font-size: 12px;
+   }
+   .box{
+    width: 390px;
+    height: 320px;
+    border: solid 1px #ddd;
+    background: #FFF;
+    position: absolute;
+    left: 50%;
+    top:42%;
+    margin-left: -195px;
+    margin-top: -160px;
+    text-align: center;
+   }
+   .box h2{
+    font-weight: normal;
+    color:#666;
+    font-size: 16px;
+    line-height: 40px;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: solid 1px #ddd;
+    background: #f7f7f7;
+   }
+   .input_box{
+    width:350px;
+    padding-bottom: 15px;
+    margin: 0 auto;
+    overflow: hidden;
+   }
