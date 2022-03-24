@@ -1,10 +1,29 @@
-export function fnLogin() {
+import axios from "axios"
+const login = (e) => {
+    e.preventDefault()
+    let loginForm = document.getElementById('login_form')
+    let data = new FormData(loginForm)
+    let dataJson = {}
+    data.forEach((item, key) => {
+        dataJson[key] = item
+    })
+    console.log(dataJson)
+    axios.post('http://localhost:3000/api/login', dataJson, {
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }).then(res => {
+        console.log(res)
+    })
+
+
+
+}
+
+
+
+const fnLogin = () => {
     
-    /*var agConnectConfig =  {
-        //应用配置信息
-    };
-    //初始化agc
-    */
     async function executeUpsert (book) {
         try {
             const cloudDBZoneResult = await cloudDBZone.executeUpsert(book);
@@ -49,5 +68,12 @@ export function fnLogin() {
     executeUpsert(user);
     
     window.alert("登录成功");
-    window.location.href='./webindex/webdesign.html';
+    window.location.href='../../webindex/webdesign.html';
 }
+
+(function (){
+    document.getElementById('login_form').addEventListener('submit', login)
+
+}())
+
+

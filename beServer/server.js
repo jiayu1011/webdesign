@@ -3,9 +3,18 @@ import router from '../router/routes'
 import bodyParser from 'body-parser'
 import config from '../config/config'
 import '@babel/polyfill'
+import {requestLogged} from "../middle-ware/my-middle-ware";
+import path from 'path'
+import ejs from 'ejs'
+
+
 
 
 let app = express()
+
+app.listen(config.port, () => {
+    console.log(`Your server is running at http://localhost:${config.port}...`)
+})
 
 app.all('*', (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
@@ -20,10 +29,12 @@ app.all('*', (req, res, next) => {
 
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(requestLogged)
 
 app.use('/', router)
 
-app.listen(config.port, () => {
-    console.log(`Your server is running at http://localhost:${config.port}...`)
-})
+app.set('views', path.resolve(__dirname, '../dist'))
+app.set('view engine', 'html')
+app.engine('.html', ejs.__express)
+

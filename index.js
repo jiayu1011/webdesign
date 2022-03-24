@@ -1,10 +1,9 @@
-// import {fnLogin} from "./login";
-// import './login.css'
+import './src/login/login.css'
 
-let b = '123'
-let a = new Promise.resolve()
 
-// load()
-// fnLogin()
-
+(function (){
+    document.getElementById('test').addEventListener('click', (e) => {
+        console.log(e)
+    })
+}())
 

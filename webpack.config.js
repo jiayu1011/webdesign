@@ -4,19 +4,29 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode: "development",
-    entry: [
-        '@babel/polyfill',
-        './index.js'
-    ],
+    entry: {
+        polyfill: '@babel/polyfill',
+        index: './index.js',
+        login: './src/login/login.js'
+    },
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: "/"
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: "webpackdesign",
-            template: "./index.html"
+            filename: "index.html",
+            template: "./index.html",
+            chunks: ['index'],
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: "./login.html",
+            template: "./src/login/login.html",
+            chunks: ['login'],
+            inject: true
         }),
 
     ],
@@ -52,7 +62,11 @@ module.exports = {
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist')
+        },
+        proxy: {
+            '/': 'http://localhost:3000'
         }
+
     },
 
 
